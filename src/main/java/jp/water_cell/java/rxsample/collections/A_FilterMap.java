@@ -13,12 +13,14 @@ public class A_FilterMap implements ICollectionUtils {
     }
 
     public Set<City> getCitiesCustomersAreFrom(Shop shop) {
+        // Return the set of cities the customers are from
         // TODO
         return null;
     }
 
 
     public List<Customer> getCustomersFrom(Shop shop, City city) {
+        // Return the list of the customers who live in the given city
         // TODO
         return null;
     }
