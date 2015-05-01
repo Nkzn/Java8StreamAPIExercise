@@ -23,31 +23,39 @@ public class B_AllAnyAndOtherPredicates implements ICollectionUtils {
 
     public Boolean isFrom(Customer customer, City city) {
         // Return true if the customer is from the given city
-        // TODO
-        return null;
+        return customer.getCity().equals(city);
     }
 
     public Boolean checkAllCustomersAreFrom(Shop shop, City city) {
         // Return true if all customers are from the given city
-        // TODO
-        return null;
+        return Observable.from(shop.getCustomers())
+                .all(customer -> isFrom(customer, city))
+                .toBlocking()
+                .single();
     }
 
     public Boolean hasCustomerFrom(Shop shop, City city) {
         // Check there is at least one customer from the given city
-        // TODO
-        return null;
+        return Observable.from(shop.getCustomers())
+                .exists(customer -> isFrom(customer, city))
+                .toBlocking()
+                .single();
     }
 
     public Integer countCustomersFrom(Shop shop, City city) {
         // Returns the number of customers from the given city
-        // TODO
-        return null;
+        return Observable.from(shop.getCustomers())
+                .filter(customer -> isFrom(customer, city))
+                .count()
+                .toBlocking()
+                .single();
     }
 
     public Customer findAnyCustomerFrom(Shop shop, City city) {
         // Return a customer who lives in the given city or null if there is none
-        // TODO
-        return null;
+        return Observable.from(shop.getCustomers())
+                .first(customer -> isFrom(customer, city))
+                .toBlocking()
+                .single();
     }
 }
