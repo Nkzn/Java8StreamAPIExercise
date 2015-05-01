@@ -6,5 +6,6 @@ repositories {
 
 dependencies {
     compile 'io.reactivex:rxjava:1.0.10'
+    compile 'com.google.guava:guava:18.0'
     testCompile 'junit:junit:4.12'
 }
