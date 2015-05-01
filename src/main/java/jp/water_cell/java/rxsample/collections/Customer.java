@@ -30,4 +30,25 @@ public class Customer {
     public String toString() {
         return String.format("'%s' from %s", name, city.getName());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+
+        if (name != null ? !name.equals(customer.name) : customer.name != null) return false;
+        if (city != null ? !city.equals(customer.city) : customer.city != null) return false;
+        return !(orders != null ? !orders.equals(customer.orders) : customer.orders != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (orders != null ? orders.hashCode() : 0);
+        return result;
+    }
 }
