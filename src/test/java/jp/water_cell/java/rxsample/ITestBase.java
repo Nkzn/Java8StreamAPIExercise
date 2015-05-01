@@ -3,19 +3,19 @@ package jp.water_cell.java.rxsample;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import jp.water_cell.java.rxsample.collections.City;
 import jp.water_cell.java.rxsample.collections.Customer;
+import jp.water_cell.java.rxsample.collections.ICollectionUtils;
 import jp.water_cell.java.rxsample.collections.Order;
 import jp.water_cell.java.rxsample.collections.Product;
 import jp.water_cell.java.rxsample.collections.Shop;
 import rx.Observable;
 
-public interface ITestBase {
+public interface ITestBase extends ICollectionUtils {
 
     //products
     Product idea = new Product("IntelliJ IDEA Ultimate", 199.0);
@@ -100,7 +100,7 @@ public interface ITestBase {
     default List<Customer> sortedCustomers() {
         return namesToCustomers(cooper, nathan, bajram, asuka, lucas, reka);
     }
-    
+
     default Map<City, List<Customer>> groupByCities() {
         Map<City, List<Customer>> map = new HashMap<>();
 
@@ -112,20 +112,12 @@ public interface ITestBase {
 
         return map;
     }
-    
+
     default List<Customer> namesToCustomers(String... names) {
         return Observable.from(names)
                 .map(name -> customers().get(name))
                 .toList()
                 .toBlocking()
                 .single();
-    }
-
-    default <T> Set<T> setOf(T... array) {
-        return new HashSet<>(Arrays.asList(array));
-    }
-
-    default <T> List<T> listOf(T... array) {
-        return Arrays.asList(array);
     }
 }
