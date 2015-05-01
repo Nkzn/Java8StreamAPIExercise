@@ -1,5 +1,6 @@
 package jp.water_cell.java.rxsample.collections;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,13 +14,21 @@ public class A_FilterMap implements ICollectionUtils {
     }
 
     public Set<City> getCitiesCustomersAreFrom(Shop shop) {
-        // TODO
-        return null;
+        List<City> cities = Observable.from(shop.getCustomers())
+                .map(customer -> customer.getCity())
+                .toList()
+                .toBlocking()
+                .single();
+
+        return new HashSet<>(cities);
     }
 
 
     public List<Customer> getCustomersFrom(Shop shop, City city) {
-        // TODO
-        return null;
+        return Observable.from(shop.getCustomers())
+                .filter( customer -> customer.getCity().equals(city) )
+                .toList()
+                .toBlocking()
+                .single();
     }
 }

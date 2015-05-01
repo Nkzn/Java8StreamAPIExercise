@@ -1,5 +1,6 @@
 package jp.water_cell.java.rxsample;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import jp.water_cell.java.rxsample.collections.A_FilterMap;
@@ -11,6 +12,7 @@ public class A_Filter_Map implements ITestBase {
 
     A_FilterMap sut;
 
+    @Before
     public void setUp() {
         sut = new A_FilterMap();
     }
@@ -22,7 +24,7 @@ public class A_Filter_Map implements ITestBase {
 
     @Test
     public void testCustomersFromCity() {
-        assertThat(listOf(customers().get(lucas), customers().get(cooper)), is(sut.getCustomersFrom(Canberra)));
+        assertThat(listOf(customers().get(lucas), customers().get(cooper)), is(sut.getCustomersFrom(shop(), Canberra)));
     }
 
 }
