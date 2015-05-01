@@ -15,7 +15,7 @@ import jp.water_cell.java.rxsample.collections.Product;
 import jp.water_cell.java.rxsample.collections.Shop;
 import rx.Observable;
 
-public interface TestConsts {
+public interface ITestBase {
 
     //products
     Product idea = new Product("IntelliJ IDEA Ultimate", 199.0);
