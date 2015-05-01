@@ -14,6 +14,7 @@ public class A_FilterMap implements ICollectionUtils {
     }
 
     public Set<City> getCitiesCustomersAreFrom(Shop shop) {
+        // Return the set of cities the customers are from
         List<City> cities = Observable.from(shop.getCustomers())
                 .map(customer -> customer.getCity())
                 .toList()
@@ -25,6 +26,7 @@ public class A_FilterMap implements ICollectionUtils {
 
 
     public List<Customer> getCustomersFrom(Shop shop, City city) {
+        // Return the list of the customers who live in the given city
         return Observable.from(shop.getCustomers())
                 .filter( customer -> customer.getCity().equals(city) )
                 .toList()
