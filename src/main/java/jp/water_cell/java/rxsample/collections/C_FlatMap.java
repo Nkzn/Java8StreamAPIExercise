@@ -2,6 +2,7 @@ package jp.water_cell.java.rxsample.collections;
 
 import com.google.common.primitives.Chars;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -22,13 +23,23 @@ public class C_FlatMap implements ICollectionUtils {
 
     public Set<Product> getOrderedProducts(Customer customer) {
         // Return all products ordered by customer
-        // TODO
-        return null;
+        List<Product> products = Observable.from(customer.getOrders())
+                .flatMap(order -> Observable.from(order.getProducts()))
+                .toList()
+                .toBlocking()
+                .single();
+
+        return new HashSet<>(products);
     }
 
     public Set<Product> getAllOrderedProducts(Shop shop) {
         // Return all products ordered by all customers
-        // TODO
-        return null;
+        List<Product> products = Observable.from(shop.getCustomers())
+                .flatMap(customer -> Observable.from(getOrderedProducts(customer)))
+                .toList()
+                .toBlocking()
+                .single();
+
+        return new HashSet<>(products);
     }
 }
