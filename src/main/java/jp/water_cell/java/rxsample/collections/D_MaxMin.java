@@ -1,7 +1,5 @@
 package jp.water_cell.java.rxsample.collections;
 
-import java.util.List;
-
 import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.models.Product;
 import jp.water_cell.java.rxsample.collections.models.Shop;
@@ -16,9 +14,10 @@ public class D_MaxMin implements ICollectionUtils {
                 .toBlocking()
                 .single();
 
-        List<String> longestString = maxBy(Observable.just("aaa", "bbbbb", "cc", "ddddd"), string -> string.length())
+        String longestString = maxBy(Observable.just("aaa", "bbbbb", "cc", "ddddd"), string -> string.length())
                 .toBlocking()
-                .single();
+                .single()
+                .get(0);
     }
 
     public Customer getCustomerWithMaximumNumberOfOrders(Shop shop) {
