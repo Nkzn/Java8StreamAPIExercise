@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import jp.water_cell.java.rxsample.collections.models.City;
+import jp.water_cell.java.rxsample.collections.models.Customer;
+import jp.water_cell.java.rxsample.collections.models.Shop;
 import rx.Observable;
 
 public class A_FilterMap implements ICollectionUtils {
