@@ -1,4 +1,4 @@
-package jp.water_cell.java.rxsample.collections;
+package jp.water_cell.java.rxsample.collections.models;
 
 import java.util.List;
 

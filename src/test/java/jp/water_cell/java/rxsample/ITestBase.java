@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import jp.water_cell.java.rxsample.collections.City;
-import jp.water_cell.java.rxsample.collections.Customer;
+import jp.water_cell.java.rxsample.collections.models.City;
+import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.ICollectionUtils;
-import jp.water_cell.java.rxsample.collections.Order;
-import jp.water_cell.java.rxsample.collections.Product;
-import jp.water_cell.java.rxsample.collections.Shop;
+import jp.water_cell.java.rxsample.collections.models.Order;
+import jp.water_cell.java.rxsample.collections.models.Product;
+import jp.water_cell.java.rxsample.collections.models.Shop;
 import rx.Observable;
 
 public interface ITestBase extends ICollectionUtils {

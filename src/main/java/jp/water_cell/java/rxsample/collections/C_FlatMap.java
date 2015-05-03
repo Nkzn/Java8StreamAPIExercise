@@ -5,6 +5,9 @@ import com.google.common.primitives.Chars;
 import java.util.List;
 import java.util.Set;
 
+import jp.water_cell.java.rxsample.collections.models.Customer;
+import jp.water_cell.java.rxsample.collections.models.Product;
+import jp.water_cell.java.rxsample.collections.models.Shop;
 import rx.Observable;
 
 public class C_FlatMap implements ICollectionUtils {
