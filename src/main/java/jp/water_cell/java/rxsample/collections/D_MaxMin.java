@@ -1,7 +1,5 @@
 package jp.water_cell.java.rxsample.collections;
 
-import java.util.List;
-
 import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.models.Product;
 import jp.water_cell.java.rxsample.collections.models.Shop;
@@ -16,18 +14,25 @@ public class D_MaxMin implements ICollectionUtils {
                 .toBlocking()
                 .single();
 
-        List<String> longestString = maxBy(Observable.just("aaa", "bbbbb", "cc", "ddddd"), string -> string.length())
+        String longestString = maxBy(Observable.just("aaa", "bbbbb", "cc", "ddddd"), string -> string.length())
                 .toBlocking()
-                .single();
+                .single()
+                .get(0);
     }
 
     public Customer getCustomerWithMaximumNumberOfOrders(Shop shop) {
         // Return a customer who ordered maximum number of orders
-        return null;
+        return maxBy(Observable.from(shop.getCustomers()), customer -> customer.getOrders().size())
+                .toBlocking()
+                .single()
+                .get(0);
     }
 
     public Product getMostExpensiveOrderedProduct(Customer customer) {
         // Return the most expensive ordered product
-        return null;
+        return maxBy(Observable.from(new C_FlatMap().getOrderedProducts(customer)), product -> product.getPrice())
+                .toBlocking()
+                .single()
+                .get(0);
     }
 }
