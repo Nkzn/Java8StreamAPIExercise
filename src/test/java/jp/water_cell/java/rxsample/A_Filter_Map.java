@@ -22,7 +22,7 @@ public class A_Filter_Map implements ITestBase {
 
     @Test
     public void testCustomersFromCity() {
-        assertThat(listOf(customers().get(lucas), customers().get(cooper)), is(sut.getCustomersFrom(Canberra)));
+        assertThat(listOf(customers().get(lucas), customers().get(cooper)), is(sut.getCustomersFrom(shop(), Canberra)));
     }
 
 }
