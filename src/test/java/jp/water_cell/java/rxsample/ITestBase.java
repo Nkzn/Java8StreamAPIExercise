@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import jp.water_cell.java.rxsample.collections.ICollectionUtils;
 import jp.water_cell.java.rxsample.collections.models.City;
 import jp.water_cell.java.rxsample.collections.models.Customer;
-import jp.water_cell.java.rxsample.collections.ICollectionUtils;
 import jp.water_cell.java.rxsample.collections.models.Order;
 import jp.water_cell.java.rxsample.collections.models.Product;
 import jp.water_cell.java.rxsample.collections.models.Shop;
@@ -47,31 +47,30 @@ public interface ITestBase extends ICollectionUtils {
     City Tokyo = new City("Tokyo");
 
     default Shop shop() {
+        return shop("test shop",
+                customer(lucas, Canberra,
+                        order(reSharper),
+                        order(reSharper, dotMemory, dotTrace)
+                ),
+                customer(cooper, Canberra),
+                customer(nathan, Vancouver,
+                        order(rubyMine, webStorm)
+                ),
+                customer(reka, Budapest,
+                        order(false, idea),
+                        order(false, idea),
+                        order(idea)
+                ),
+                customer(bajram, Ankara,
+                        order(reSharper)
+                ),
+                customer(asuka, Tokyo,
+                        order(idea)
+                ));
+    }
 
-
-        List<Customer> customers = new ArrayList<>();
-
-        customers.add(customer(lucas, Canberra,
-                order(reSharper),
-                order(reSharper, dotMemory, dotTrace)
-        ));
-        customers.add(customer(cooper, Canberra));
-        customers.add(customer(nathan, Vancouver,
-                order(rubyMine, webStorm)
-        ));
-        customers.add(customer(reka, Budapest,
-                order(false, idea),
-                order(false, idea),
-                order(idea)
-        ));
-        customers.add(customer(bajram, Ankara,
-                order(reSharper)
-        ));
-        customers.add(customer(asuka, Tokyo,
-                order(idea)
-        ));
-
-        return new Shop("test shop", customers);
+    default Shop shop(String name, Customer... customers) {
+        return new Shop(name, Arrays.asList(customers));
     }
 
     default Customer customer(String name, City city, Order... orders) {
