@@ -1,5 +1,6 @@
 package jp.water_cell.java.rxsample;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import jp.water_cell.java.rxsample.collections.F_Sum_;
@@ -11,7 +12,7 @@ public class F_Sum implements ITestBase {
 
     F_Sum_ sut;
 
-    @Test
+    @Before
     public void setUp() {
         sut = new F_Sum_();
     }
