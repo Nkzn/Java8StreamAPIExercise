@@ -101,7 +101,7 @@ public interface ITestBase extends ICollectionUtils {
         return namesToCustomers(cooper, nathan, bajram, asuka, lucas, reka);
     }
 
-    default Map<City, List<Customer>> groupByCities() {
+    default Map<City, List<Customer>> groupedByCities() {
         Map<City, List<Customer>> map = new HashMap<>();
 
         map.put(Canberra, namesToCustomers(lucas, cooper));
