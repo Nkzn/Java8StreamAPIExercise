@@ -26,8 +26,7 @@ public class H_Fold_ implements ICollectionUtils {
         return Observable.from(shop.getCustomers())
                 .reduce(allOrderedProducts,
                         (orderedByAll, customer) -> {
-                            // TODO
-                            return null;
+                            return intersection(orderedByAll, new C_FlatMap().getOrderedProducts(customer));
                         })
                 .toBlocking()
                 .single();
