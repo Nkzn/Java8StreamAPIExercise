@@ -1,5 +1,8 @@
 package jp.water_cell.java.rxsample.collections;
 
+import org.apache.commons.collections4.CollectionUtils;
+
+import java.util.HashSet;
 import java.util.Set;
 
 import jp.water_cell.java.rxsample.collections.models.Product;
@@ -28,5 +31,10 @@ public class H_Fold_ implements ICollectionUtils {
                         })
                 .toBlocking()
                 .single();
+    }
+
+    /** return set of products included both of sets */
+    private Set<Product> intersection(Set<Product> original, Set<Product> remove) {
+        return new HashSet<>(CollectionUtils.intersection(original, remove));
     }
 }
