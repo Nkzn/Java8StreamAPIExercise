@@ -1,11 +1,10 @@
-package jp.water_cell.java.rxsample;
+package jp.water_cell.java.stream;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import jp.water_cell.java.rxsample.collections.H_Fold_;
-import jp.water_cell.java.rxsample.collections.models.Shop;
+import jp.water_cell.java.stream.models.Shop;
 
 public class H_Fold implements ITestBase {
 

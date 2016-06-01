@@ -1,10 +1,8 @@
-package jp.water_cell.java.rxsample;
+package jp.water_cell.java.stream;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import jp.water_cell.java.rxsample.collections.G_GroupBy;
 
 public class G_Group_By implements ITestBase {
 

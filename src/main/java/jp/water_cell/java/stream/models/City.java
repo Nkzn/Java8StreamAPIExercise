@@ -1,4 +1,4 @@
-package jp.water_cell.java.rxsample.collections.models;
+package jp.water_cell.java.stream.models;
 
 public class City {
 

@@ -1,10 +1,10 @@
-package jp.water_cell.java.rxsample.collections;
+package jp.water_cell.java.stream;
 
 import java.util.Set;
 
-import jp.water_cell.java.rxsample.collections.models.Customer;
-import jp.water_cell.java.rxsample.collections.models.Product;
-import jp.water_cell.java.rxsample.collections.models.Shop;
+import jp.water_cell.java.stream.models.Customer;
+import jp.water_cell.java.stream.models.Product;
+import jp.water_cell.java.stream.models.Shop;
 
 public class I_CompoundTasks implements ICollectionUtils {
 

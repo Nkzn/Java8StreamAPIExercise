@@ -1,4 +1,4 @@
-package jp.water_cell.java.rxsample.collections;
+package jp.water_cell.java.stream;
 
 import java.util.HashMap;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import jp.water_cell.java.rxsample.collections.models.City;
-import jp.water_cell.java.rxsample.collections.models.Customer;
-import jp.water_cell.java.rxsample.collections.models.Shop;
+import jp.water_cell.java.stream.models.City;
+import jp.water_cell.java.stream.models.Customer;
+import jp.water_cell.java.stream.models.Shop;
 
 public class G_GroupBy implements ICollectionUtils {
 

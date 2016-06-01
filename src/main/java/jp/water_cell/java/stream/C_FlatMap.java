@@ -1,4 +1,4 @@
-package jp.water_cell.java.rxsample.collections;
+package jp.water_cell.java.stream;
 
 import com.google.common.primitives.Chars;
 
@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import jp.water_cell.java.rxsample.collections.models.Customer;
-import jp.water_cell.java.rxsample.collections.models.Product;
-import jp.water_cell.java.rxsample.collections.models.Shop;
+import jp.water_cell.java.stream.models.Customer;
+import jp.water_cell.java.stream.models.Product;
+import jp.water_cell.java.stream.models.Shop;
 
 public class C_FlatMap implements ICollectionUtils {
 

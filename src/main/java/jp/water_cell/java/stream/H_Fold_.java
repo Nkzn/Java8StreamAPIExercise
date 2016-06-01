@@ -1,4 +1,4 @@
-package jp.water_cell.java.rxsample.collections;
+package jp.water_cell.java.stream;
 
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import jp.water_cell.java.rxsample.collections.models.Product;
-import jp.water_cell.java.rxsample.collections.models.Shop;
+import jp.water_cell.java.stream.models.Product;
+import jp.water_cell.java.stream.models.Shop;
 
 public class H_Fold_ implements ICollectionUtils {
 
