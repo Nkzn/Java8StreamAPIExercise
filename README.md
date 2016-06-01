@@ -32,4 +32,4 @@ masterから`my-challenge`などの自分用ブランチを切り出してから
 Inspired by
 --------------------
 
-* [JetBrains/workshop-jb](https://github.com/jetbrains/workshop-jb)
+* [Kotlin/kotlin-koans](https://github.com/Kotlin/kotlin-koans)
