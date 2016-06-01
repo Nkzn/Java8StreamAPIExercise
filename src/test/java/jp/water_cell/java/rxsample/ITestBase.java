@@ -1,11 +1,12 @@
 package jp.water_cell.java.rxsample;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import jp.water_cell.java.rxsample.collections.ICollectionUtils;
 import jp.water_cell.java.rxsample.collections.models.City;
@@ -13,7 +14,6 @@ import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.models.Order;
 import jp.water_cell.java.rxsample.collections.models.Product;
 import jp.water_cell.java.rxsample.collections.models.Shop;
-import rx.Observable;
 
 public interface ITestBase extends ICollectionUtils {
 
@@ -86,10 +86,8 @@ public interface ITestBase extends ICollectionUtils {
     }
 
     default Map<String, Customer> customers() {
-        return Observable.from(shop().getCustomers())
-                .toMap(Customer::getName)
-                .toBlocking()
-                .single();
+        return shop().getCustomers().stream()
+                .collect(Collectors.toMap(Customer::getName, customer -> customer));
     }
 
     default Set<Product> orderedProducts() {
@@ -113,10 +111,8 @@ public interface ITestBase extends ICollectionUtils {
     }
 
     default List<Customer> namesToCustomers(String... names) {
-        return Observable.from(names)
+        return Stream.of(names)
                 .map(name -> customers().get(name))
-                .toList()
-                .toBlocking()
-                .single();
+                .collect(Collectors.toList());
     }
 }

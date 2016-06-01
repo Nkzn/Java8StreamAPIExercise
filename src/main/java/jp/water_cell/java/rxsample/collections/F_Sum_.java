@@ -1,17 +1,13 @@
 package jp.water_cell.java.rxsample.collections;
 
 import jp.water_cell.java.rxsample.collections.models.Customer;
-import rx.Observable;
 
-import static rx.math.operators.OperatorSum.sumDoubles;
-import static rx.math.operators.OperatorSum.sumIntegers;
+import java.util.stream.Stream;
 
 public class F_Sum_ {
 
     void example() {
-        Integer sum = sumIntegers(Observable.just(1, 5, 3))
-                .toBlocking()
-                .single();
+        Integer sum = Stream.of(1, 5, 3).reduce(0, (prev, curr) -> prev += curr);
     }
 
     public Double getTotalOrderPrice(Customer customer) {

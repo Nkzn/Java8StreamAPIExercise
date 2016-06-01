@@ -3,21 +3,15 @@ package jp.water_cell.java.rxsample.collections;
 import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.models.Product;
 import jp.water_cell.java.rxsample.collections.models.Shop;
-import rx.Observable;
 
-import static rx.math.operators.OperatorMinMax.*;
+import java.util.stream.Stream;
 
 public class D_MaxMin implements ICollectionUtils {
 
     void example() {
-        Integer max = max(Observable.just(1, 42, 4))
-                .toBlocking()
-                .single();
-
-        String longestString = maxBy(Observable.just("aaa", "bbbbb", "cc", "ddddd"), string -> string.length())
-                .toBlocking()
-                .single()
-                .get(0);
+        String longestString = Stream.of("aaa", "bbbbb", "cc", "ddddd")
+                .max((s1, s2) -> Integer.compare(s1.length(), s2.length()))
+                .get();
     }
 
     public Customer getCustomerWithMaximumNumberOfOrders(Shop shop) {

@@ -1,26 +1,25 @@
 package jp.water_cell.java.rxsample.collections;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import jp.water_cell.java.rxsample.collections.models.City;
 import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.models.Shop;
-import rx.Observable;
-import rx.functions.Func1;
 
 public class B_AllAnyAndOtherPredicates implements ICollectionUtils {
 
     void example(List<Integer> list) {
 
-        Func1<Integer, Boolean> isZero = integer -> integer == 0;
+        Predicate<Integer> isZero = integer -> integer == 0;
 
-        Boolean hasZero = Observable.from(list).exists(isZero).toBlocking().single();
+        Boolean hasZero = list.stream().anyMatch(isZero);
 
-        Boolean allZeros = Observable.from(list).all(isZero).toBlocking().single();
+        Boolean allZeros = list.stream().allMatch(isZero);
 
-        Integer numberOfZeros = Observable.from(list).filter(isZero).count().toBlocking().single();
+        long numberOfZeros = list.stream().filter(isZero).count();
 
-        Integer firstPositiveNumber = Observable.from(list).first(integer -> integer > 0).toBlocking().single();
+        Integer firstPositiveNumber = list.stream().filter(integer -> integer > 0).findFirst().get();
     }
 
     public Boolean isFrom(Customer customer, City city) {
@@ -44,7 +43,7 @@ public class B_AllAnyAndOtherPredicates implements ICollectionUtils {
                 .single();
     }
 
-    public Integer countCustomersFrom(Shop shop, City city) {
+    public Long countCustomersFrom(Shop shop, City city) {
         // Returns the number of customers from the given city
         return Observable.from(shop.getCustomers())
                 .filter(customer -> isFrom(customer, city))
