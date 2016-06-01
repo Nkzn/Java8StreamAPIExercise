@@ -16,4 +16,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'RxJavaExercise'
+rootProject.name = 'Java8StreamAPIExercise'
