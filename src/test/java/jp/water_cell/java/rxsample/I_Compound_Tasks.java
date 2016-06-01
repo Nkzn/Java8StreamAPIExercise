@@ -32,7 +32,7 @@ public class I_Compound_Tasks implements ITestBase {
     }
 
     @Test public void testNumberOfTimesEachProductWasOrdered() {
-        Assert.assertEquals(Integer.valueOf(3), sut.getNumberOfTimesProductWasOrdered(shop(), reSharper));
+        Assert.assertEquals(Long.valueOf(3), sut.getNumberOfTimesProductWasOrdered(shop(), reSharper));
     }
     
 }

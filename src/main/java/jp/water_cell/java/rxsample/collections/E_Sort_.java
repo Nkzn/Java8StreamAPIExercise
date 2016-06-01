@@ -19,9 +19,8 @@ public class E_Sort_ implements ICollectionUtils {
 
     public List<Customer> getCustomersSortedByNumberOfOrders(Shop shop) {
         // Return customers sorted by number of orders they made
-        return Observable.from(shop.getCustomers())
-                .toSortedList((customer1, customer2) -> customer1.getOrders().size() - customer2.getOrders().size())
-                .toBlocking()
-                .single();
+        return shop.getCustomers().stream()
+                .sorted((customer1, customer2) -> customer1.getOrders().size() - customer2.getOrders().size())
+                .collect(Collectors.toList());
     }
 }

@@ -1,13 +1,12 @@
 package jp.water_cell.java.rxsample.collections;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import jp.water_cell.java.rxsample.collections.models.City;
 import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.models.Shop;
+
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class A_FilterMap implements ICollectionUtils {
 
@@ -18,22 +17,15 @@ public class A_FilterMap implements ICollectionUtils {
 
     public Set<City> getCitiesCustomersAreFrom(Shop shop) {
         // Return the set of cities the customers are from
-        List<City> cities = Observable.from(shop.getCustomers())
+        return shop.getCustomers().stream()
                 .map(customer -> customer.getCity())
-                .toList()
-                .toBlocking()
-                .single();
-
-        return new HashSet<>(cities);
+                .collect(Collectors.toSet());
     }
-
 
     public List<Customer> getCustomersFrom(Shop shop, City city) {
         // Return the list of the customers who live in the given city
-        return Observable.from(shop.getCustomers())
+        return shop.getCustomers().stream()
                 .filter( customer -> customer.getCity().equals(city) )
-                .toList()
-                .toBlocking()
-                .single();
+                .collect(Collectors.toList());
     }
 }

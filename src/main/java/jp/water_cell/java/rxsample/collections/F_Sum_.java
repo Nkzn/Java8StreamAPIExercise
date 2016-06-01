@@ -13,10 +13,9 @@ public class F_Sum_ {
     public Double getTotalOrderPrice(Customer customer) {
         // Returns the sum of prices of all products ordered by customer.
         // Note: a customer may order the same product for several times.
-        return sumDoubles(Observable.from(customer.getOrders())
-                .flatMap(order -> Observable.from(order.getProducts()))
-                .map(product -> product.getPrice()))
-                .toBlocking()
-                .single();
+        return customer.getOrders().stream()
+                .flatMap(order -> order.getProducts().stream())
+                .map(product -> product.getPrice())
+                .reduce(0d, (sum, price) -> sum += price);
     }
 }

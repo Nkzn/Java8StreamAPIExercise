@@ -24,11 +24,8 @@ public class H_Fold_ implements ICollectionUtils {
         Set<Product> allOrderedProducts = new C_FlatMap().getAllOrderedProducts(shop);
         return shop.getCustomers().stream()
                 .reduce(allOrderedProducts,
-                        (orderedByAll, customer) -> {
-                            return intersection(orderedByAll, new C_FlatMap().getOrderedProducts(customer));
-                        })
-                .toBlocking()
-                .single();
+                        (orderedByAll, customer) -> intersection(orderedByAll, new C_FlatMap().getOrderedProducts(customer)),
+                        (products1, products2) -> null);
     }
 
     /** return set of products included both of sets */

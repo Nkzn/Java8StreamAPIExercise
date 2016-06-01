@@ -30,12 +30,7 @@ public class G_GroupBy implements ICollectionUtils {
 
     public Map<City, List<Customer>> groupCustomersByCity(Shop shop) {
         // Return the map of the customers living in each city
-        return Observable.from(shop.getCustomers())
-                .groupBy(customer -> customer.getCity())
-                .collect(
-                        () -> new HashMap<City, List<Customer>>(),
-                        (map, observable) -> observable.toList().subscribe(list -> map.put(observable.getKey(), list)))
-                .toBlocking()
-                .single();
+        return shop.getCustomers().stream()
+                .collect(Collectors.groupingBy(Customer::getCity));
     }
 }

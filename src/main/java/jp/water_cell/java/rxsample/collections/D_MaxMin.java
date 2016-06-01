@@ -16,17 +16,15 @@ public class D_MaxMin implements ICollectionUtils {
 
     public Customer getCustomerWithMaximumNumberOfOrders(Shop shop) {
         // Return a customer who ordered maximum number of orders
-        return maxBy(Observable.from(shop.getCustomers()), customer -> customer.getOrders().size())
-                .toBlocking()
-                .single()
-                .get(0);
+        return shop.getCustomers().stream()
+                .max((c1, c2) -> Integer.compare(c1.getOrders().size(), c2.getOrders().size()))
+                .get();
     }
 
     public Product getMostExpensiveOrderedProduct(Customer customer) {
         // Return the most expensive ordered product
-        return maxBy(Observable.from(new C_FlatMap().getOrderedProducts(customer)), product -> product.getPrice())
-                .toBlocking()
-                .single()
-                .get(0);
+        return new C_FlatMap().getOrderedProducts(customer).stream()
+                .max((p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice()))
+                .get();
     }
 }
