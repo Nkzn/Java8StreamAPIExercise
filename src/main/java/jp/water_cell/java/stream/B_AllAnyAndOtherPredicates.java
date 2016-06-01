@@ -1,11 +1,11 @@
-package jp.water_cell.java.rxsample.collections;
+package jp.water_cell.java.stream;
 
 import java.util.List;
 import java.util.function.Predicate;
 
-import jp.water_cell.java.rxsample.collections.models.City;
-import jp.water_cell.java.rxsample.collections.models.Customer;
-import jp.water_cell.java.rxsample.collections.models.Shop;
+import jp.water_cell.java.stream.models.City;
+import jp.water_cell.java.stream.models.Customer;
+import jp.water_cell.java.stream.models.Shop;
 
 public class B_AllAnyAndOtherPredicates implements ICollectionUtils {
 

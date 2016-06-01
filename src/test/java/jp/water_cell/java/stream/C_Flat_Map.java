@@ -1,10 +1,8 @@
-package jp.water_cell.java.rxsample;
+package jp.water_cell.java.stream;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import jp.water_cell.java.rxsample.collections.C_FlatMap;
 
 public class C_Flat_Map implements ITestBase {
 

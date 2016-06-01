@@ -1,6 +1,6 @@
-package jp.water_cell.java.rxsample.collections;
+package jp.water_cell.java.stream;
 
-import jp.water_cell.java.rxsample.collections.models.Customer;
+import jp.water_cell.java.stream.models.Customer;
 
 import java.util.stream.Stream;
 

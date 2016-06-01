@@ -1,4 +1,4 @@
-package jp.water_cell.java.rxsample;
+package jp.water_cell.java.stream;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,12 +8,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import jp.water_cell.java.rxsample.collections.ICollectionUtils;
-import jp.water_cell.java.rxsample.collections.models.City;
-import jp.water_cell.java.rxsample.collections.models.Customer;
-import jp.water_cell.java.rxsample.collections.models.Order;
-import jp.water_cell.java.rxsample.collections.models.Product;
-import jp.water_cell.java.rxsample.collections.models.Shop;
+import jp.water_cell.java.stream.ICollectionUtils;
+import jp.water_cell.java.stream.models.City;
+import jp.water_cell.java.stream.models.Customer;
+import jp.water_cell.java.stream.models.Order;
+import jp.water_cell.java.stream.models.Product;
+import jp.water_cell.java.stream.models.Shop;
 
 public interface ITestBase extends ICollectionUtils {
 
