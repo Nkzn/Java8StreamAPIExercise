@@ -21,7 +21,7 @@ public class I_CompoundTasks implements ICollectionUtils {
         return null;
     }
 
-    public Integer getNumberOfTimesProductWasOrdered(Shop shop, Product product) {
+    public Long getNumberOfTimesProductWasOrdered(Shop shop, Product product) {
         // Returns number of times the given product was ordered.
         // Note: a customer may order the same product for several times.
         // TODO
