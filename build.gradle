@@ -1,12 +1,13 @@
 apply plugin: 'java'
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 repositories {
     jcenter()
 }
 
 dependencies {
-    compile 'io.reactivex:rxjava:1.0.10'
-    compile 'io.reactivex:rxjava-math:1.0.0'
     compile 'com.google.guava:guava:18.0'
     compile 'org.apache.commons:commons-collections4:4.0'
     testCompile 'junit:junit:4.12'

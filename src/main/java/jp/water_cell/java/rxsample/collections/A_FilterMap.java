@@ -2,17 +2,17 @@ package jp.water_cell.java.rxsample.collections;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import jp.water_cell.java.rxsample.collections.models.City;
 import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.models.Shop;
-import rx.Observable;
 
 public class A_FilterMap implements ICollectionUtils {
 
     void example0(List<Integer> list) {
-        Integer positiveNumbers = Observable.from(list).filter(integer -> integer > 0).toBlocking().single();
-        Integer squares = Observable.from(list).map(integer -> integer * integer).toBlocking().single();
+        List<Integer> positiveNumbers = list.stream().filter(integer -> integer > 0).collect(Collectors.toList());
+        List<Integer> squares = list.stream().map(integer -> integer * integer).collect(Collectors.toList());
     }
 
     public Set<City> getCitiesCustomersAreFrom(Shop shop) {

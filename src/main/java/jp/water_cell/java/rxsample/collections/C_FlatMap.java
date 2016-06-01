@@ -4,21 +4,19 @@ import com.google.common.primitives.Chars;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.models.Product;
 import jp.water_cell.java.rxsample.collections.models.Shop;
-import rx.Observable;
 
 public class C_FlatMap implements ICollectionUtils {
 
     void example() {
 
-        List<Character> result = Observable.from(listOf("abc", "12"))
-                .flatMap(string -> Observable.from(Chars.asList(string.toCharArray())))
-                .toList()
-                .toBlocking()
-                .single();
+        List<Character> result = listOf("abc", "12").stream()
+                .flatMap(string -> Chars.asList(string.toCharArray()).stream())
+                .collect(Collectors.toList());
 
         Chars.asList('a', 'b', 'c', '1', '2').equals(result);
     }

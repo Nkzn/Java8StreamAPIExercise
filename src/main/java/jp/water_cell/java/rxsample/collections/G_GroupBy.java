@@ -3,11 +3,12 @@ package jp.water_cell.java.rxsample.collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import jp.water_cell.java.rxsample.collections.models.City;
 import jp.water_cell.java.rxsample.collections.models.Customer;
 import jp.water_cell.java.rxsample.collections.models.Shop;
-import rx.Observable;
 
 public class G_GroupBy implements ICollectionUtils {
 
@@ -16,13 +17,8 @@ public class G_GroupBy implements ICollectionUtils {
     }
 
     void sample() {
-        HashMap<Integer, List<String>> result = Observable.just("a", "b", "ba", "ccc", "ad")
-                .groupBy(s -> s.length())
-                .collect(
-                        () -> new HashMap<Integer, List<String>>(),
-                        (m, o) -> o.toList().subscribe(list -> m.put(o.getKey(), list)))
-                .toBlocking()
-                .single();
+        Map<Integer, List<String>> result = Stream.of("a", "b", "ba", "ccc", "ad")
+                .collect(Collectors.groupingBy(String::length));
 
         HashMap<Integer, List<String>> expected = new HashMap<>();
         expected.put(1, listOf("a", "b"));

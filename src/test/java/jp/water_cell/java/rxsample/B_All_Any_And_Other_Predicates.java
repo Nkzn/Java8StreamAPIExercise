@@ -30,7 +30,7 @@ public class B_All_Any_And_Other_Predicates implements ITestBase {
     }
 
     @Test public void testCountCustomersFromCity() {
-        Assert.assertEquals(Integer.valueOf(2), sut.countCustomersFrom(shop(), Canberra));
+        Assert.assertEquals(Long.valueOf(2), sut.countCustomersFrom(shop(), Canberra));
     }
 
     @Test public void testAnyCustomerFromCity() {
